@@ -48,7 +48,6 @@ $(function() {
               @endforeach
             </tbody>
           </table>
-
         </div>
       </div>
     </div>

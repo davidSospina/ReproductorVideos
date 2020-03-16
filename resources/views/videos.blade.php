@@ -48,7 +48,7 @@
                   <label for="asigEstado">Asignar estado</label>
                   <select class="form-control" id="asigEstado" name="estado">
                     <option value="Por revisar">Por revisar</option>
-                    <option value="Publicar">Publicar</option>
+                    <option value="Publicar">Publico</option>
                     <option value="Privado">Privado</option>
                   </select>
                 </div>

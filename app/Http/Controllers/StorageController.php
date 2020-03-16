@@ -9,7 +9,8 @@ class StorageController extends Controller
 {
   public function home()
   {
-      $videos = Video::get();
+      $videos = Video::get()->paginate(15);
+      //$videos1 = DB::table('videos')->;
       return view('home')->with('videos', $videos);
   }
 

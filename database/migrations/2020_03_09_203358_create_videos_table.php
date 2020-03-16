@@ -17,10 +17,10 @@ class CreateVideosTable extends Migration
             $table->String('nombre');
             $table->String('duracion');
             $table->String('descripcion');
-            $table->String('categoria');
+            $table->String('categoria', ['Laravel','Java','React','Ionic','jQuery']);
             $table->String('imagen');
             $table->String('video');
-            $table->String('estado');
+            $table->String('estado', ['Por revisar','Publico','Privado']);
 
             $table->timestamps();
         });
