@@ -32,6 +32,7 @@ $(function() {
           <table id="videos" class="table">
             <thead class="thead-dark">
               <tr>
+                <th scope="col">Video</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Categoría</th>
                 <th scope="col">Estado</th>
@@ -40,6 +41,7 @@ $(function() {
             <tbody>
               @foreach ($videos as $video)
               <tr>
+                <td><img src="{{ $video->imagen }}"/></td>
                 <td>{{ $video->nombre }}</td>
                 <td>{{ $video->categoria }}</td>
                 <td>{{ $video->estado }}</td>
@@ -49,6 +51,10 @@ $(function() {
             </tbody>
           </table>
         </div>
+      </div>
+      <br>
+      <div class="float-right">
+        {{ $videos->links() }}
       </div>
     </div>
   </div>

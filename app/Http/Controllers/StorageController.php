@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Video;
 
@@ -9,9 +10,12 @@ class StorageController extends Controller
 {
   public function home()
   {
-      $videos = Video::get()->paginate(15);
-      //$videos1 = DB::table('videos')->;
-      return view('home')->with('videos', $videos);
+      //$videos = Video::get();
+      //return view('home')->with('videos', $videos);
+
+      $videos = DB::table('videos')->paginate(5);
+      return view('home', ['videos' => $videos]);
+
   }
 
   public function crear() {
@@ -36,10 +40,12 @@ class StorageController extends Controller
     $video->descripcion = $request->descripcion;
     $video->categoria = $request->categoria;
 
-    $path = $request->imagen->storeAs('public/images', rand(1,100).time().'.'.$request->imagen->extension());
+    $entrada = $request->imagen;
+
+    $path = $request->imagen->storeAs('', rand(1,100).time().'.'.$request->imagen->extension());
     $video->imagen = $path;
 
-    $path = $request->video->storeAs('public/images', rand(1,100).time().'.'.$request->video->extension());
+    $path = $request->video->storeAs('public/videos', rand(1,100).time().'.'.$request->video->extension());
     $video->video = $path;
 
     $video->estado = $request->estado;
