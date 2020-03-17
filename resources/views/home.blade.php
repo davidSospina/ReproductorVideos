@@ -41,7 +41,9 @@ $(function() {
             <tbody>
               @foreach ($videos as $video)
               <tr>
-                <td><img src="{{ $video->imagen }}"/></td>
+                <td class="embed-responsive-4by3">
+                  <iframe controls width="270" height="150" frameborder="0" class="embed-responsive-item" src="{{$video->video}}" poster="{{ asset("$video->imagen") }}"></iframe>
+                </td>
                 <td>{{ $video->nombre }}</td>
                 <td>{{ $video->categoria }}</td>
                 <td>{{ $video->estado }}</td>

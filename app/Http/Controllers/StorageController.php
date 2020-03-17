@@ -40,13 +40,21 @@ class StorageController extends Controller
     $video->descripcion = $request->descripcion;
     $video->categoria = $request->categoria;
 
-    $entrada = $request->imagen;
+    /*if($archivoImagen = $request->file('imagen'){
+      $nombre=$archivoImagen->getClientOriginalName()
+      $archivoImagen->move('images', $nombre);
+      $video->imagen = $archivoImagen;
+    })*/
 
-    $path = $request->imagen->storeAs('', rand(1,100).time().'.'.$request->imagen->extension());
-    $video->imagen = $path;
+    //$pathImagen = $request->imagen->storeAs('images', rand(1,100).time().'.'.$request->imagen->extension());
+    //$pathImagen = $request->imagen->storeAs('images', $request->imagen->getClientOriginalName());
 
-    $path = $request->video->storeAs('public/videos', rand(1,100).time().'.'.$request->video->extension());
-    $video->video = $path;
+    //Quedo guardada en el public
+    $pathImagen = $request->file('imagen')->move('images', time().$request->imagen->getClientOriginalName());
+    $video->imagen = $pathImagen;
+
+    $pathVideo = $request->file('video')->move('videos', time().$request->video->getClientOriginalName());
+    $video->video = $pathVideo;
 
     $video->estado = $request->estado;
 
