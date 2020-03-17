@@ -6,13 +6,6 @@
   <link rel="stylesheet" href="{!! asset('css/boton.css') !!}">
 </head>
 
-<!-- Js para mensaje en contenido fijo -->
-<script type="text/javascript">
-$(function() {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -42,7 +35,7 @@ $(function() {
               @foreach ($videos as $video)
               <tr>
                 <td class="embed-responsive-4by3">
-                  <iframe controls width="270" height="150" frameborder="0" class="embed-responsive-item" src="{{$video->video}}" poster="{{ asset("$video->imagen") }}"></iframe>
+                  <video class="embed-responsive-item" src="{{$video->video}}" controls poster="{{ asset("$video->imagen") }}"></video>
                 </td>
                 <td>{{ $video->nombre }}</td>
                 <td>{{ $video->categoria }}</td>
@@ -59,11 +52,12 @@ $(function() {
         {{ $videos->links() }}
       </div>
     </div>
+    <button class="botton-float">
+      <a class="a text-decoration-none" href="{{ route('crear.video') }}">
+        <span class="span-float">+</span>
+      </a>
+    </button>
   </div>
-  <button data-toggle="tooltip" title="Presione para agregar un video" data-placement="left" class="botton-float">
-    <a class="a text-decoration-none" href="{{route('crear.video')}}">
-      <span class="span-float">+</span>
-    </a>
-  </button>
+
 </div>
 @endsection
