@@ -16,11 +16,12 @@
   float: right;
 }
 
-.a {
+.span-float{
   color: #FFF;
+  transition:.5s;
 }
 
-.span-float{
+.span-float:hover{
   color: #096D87;
   transition:.5s;
 }

@@ -53,7 +53,7 @@
       </div>
     </div>
     <button class="botton-float">
-      <a class="a text-decoration-none" href="{{ route('crear.video') }}">
+      <a class="text-decoration-none" href="{{ route('crear.video') }}">
         <span class="span-float">+</span>
       </a>
     </button>
